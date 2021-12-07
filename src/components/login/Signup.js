@@ -104,7 +104,6 @@ export default function Signup(props) {
           </HeaderContainer>
         </TopContainer>
         <InnerContainer>
-
           <BoxContainer>
             <FormContainer>
               <Input type="text" placeholder="Full Name" />
@@ -113,12 +112,8 @@ export default function Signup(props) {
               <Input type="password" placeholder="Confirm Password" />
             </FormContainer>
             <br />
-            <MutedLink href="#">Forget your password</MutedLink>
+            <SubmitButton type="submit">Đăng Ký</SubmitButton>
             <br />
-            <SubmitButton type="submit">Signin</SubmitButton>
-            <br />
-             <br />
-              <br />
           </BoxContainer>
 
         </InnerContainer>

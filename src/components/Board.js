@@ -23,7 +23,6 @@ class Board extends Component {
     
     // Move list
     if (type === "COLUMN") {
-      // Prevent update if nothing has changed
       if (source.index !== destination.index) {
         dispatch({
           type: "MOVE_LIST",

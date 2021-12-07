@@ -10,6 +10,9 @@ import * as serviceWorker from "./serviceWorker";
 
 import "./index.css";
 
+// cấu hình antd 
+import "antd/dist/antd.css";
+
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <Provider store={store}>

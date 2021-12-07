@@ -57,7 +57,7 @@ export const SubmitButton = styled.a`
   width: 100%;
   padding: 11px 40%;
   color: #ffff;
-  font-size: 15px;
+  font-size: 12px;
   font-weigth: 600;
   border: none;
   text-decoration: none;
