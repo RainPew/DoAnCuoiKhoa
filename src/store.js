@@ -135,6 +135,9 @@ const reducers = combineReducers({
   cardsById
 });
 
+
+// localStorage
+
 const saveState = state => {
   try {
     const serializedState = JSON.stringify(state);
@@ -143,7 +146,6 @@ const saveState = state => {
     // ignore write errors
   }
 };
-
 const loadState = () => {
   try {
     const serializedState = localStorage.getItem("state");
@@ -158,6 +160,10 @@ const loadState = () => {
 
 const persistedState = loadState();
 const store = createStore(reducers, persistedState);
+
+// localStorage
+
+
 
 store.subscribe(
   throttle(() => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Fragment } from 'react/cjs/react.production.min'
 import { Route } from "react-router-dom";
-import Header from "../../Header";
+import HeaderComponent from "../../HeaderComponent";
 
 
 
@@ -11,7 +11,7 @@ export default function HomeTemplate(props) {
     return <Fragment>
         <Route exact path = {props.path} render={(propsRoute) => {
             return <Fragment>
-                 <Header/>
+                 <HeaderComponent/>
                  <props.component {...propsRoute}/>
             </Fragment>
         }} />
