@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import "../styles/Header.css";
+import {
+  SearchOutlined,
+  BellOutlined
+} from "@ant-design/icons";
 
 class HeaderComponent extends Component {
   render() {
@@ -28,14 +32,25 @@ class HeaderComponent extends Component {
                 </a>
               </li> */}
             </ul>
-            <form className="form-inline my-2 my-lg-0">
+            {/* <form className="form-inline my-2 my-lg-0">
               <input
                 className="form-control mr-sm-2"
                 type="search"
                 placeholder="Tìm kiếm"
                 aria-label="Search"
               />
-            </form>
+              <div className="iconsearch">
+                <SearchOutlined />
+              </div>
+            </form> */}
+            <div className="iconsearch row">
+              <div className="col-5">
+                <SearchOutlined />
+              </div>
+              <div className="col-5">
+                <BellOutlined />
+              </div>
+            </div>
           </div>
         </nav>
       </div>

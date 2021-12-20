@@ -35,6 +35,7 @@ const listsById = (state = {}, action) => {
         [listId]: { _id: listId, title: listTitle, cards: [] }
       };
     }
+    // thay đổi tên danh sách
     case "CHANGE_LIST_TITLE": {
       const { listId, listTitle } = action.payload;
       return {
@@ -42,6 +43,7 @@ const listsById = (state = {}, action) => {
         [listId]: { ...state[listId], title: listTitle }
       };
     }
+    // xóa
     case "DELETE_LIST": {
       const { listId } = action.payload;
       const { [listId]: deletedList, ...restOfLists } = state;
@@ -61,7 +63,7 @@ const listsById = (state = {}, action) => {
         sourceListId,
         destListId
       } = action.payload;
-      // Move within the same list
+      // di chuyển trong cùng 1 danh sách
       if (sourceListId === destListId) {
         const newCards = Array.from(state[sourceListId].cards);
         const [removedCard] = newCards.splice(oldCardIndex, 1);
@@ -71,7 +73,7 @@ const listsById = (state = {}, action) => {
           [sourceListId]: { ...state[sourceListId], cards: newCards }
         };
       }
-      // Move card from one list to another
+      // di chuyển thẻ từ ds này sang ds khác
       const sourceCards = Array.from(state[sourceListId].cards);
       const [removedCard] = sourceCards.splice(oldCardIndex, 1);
       const destinationCards = Array.from(state[destListId].cards);
@@ -113,11 +115,11 @@ const cardsById = (state = {}, action) => {
       const { [cardId]: deletedCard, ...restOfCards } = state;
       return restOfCards;
     }
-    // Find every card from the deleted list and remove it
+    // Tìm mọi thẻ từ danh sách đã xóa và xóa nó
     case "DELETE_LIST": {
       const { cards: cardIds } = action.payload;
       return Object.keys(state)
-        .filter(cardId => !cardIds.includes(cardId))
+        .filter((cardId) => !cardIds.includes(cardId))
         .reduce(
           (newState, cardId) => ({ ...newState, [cardId]: state[cardId] }),
           {}

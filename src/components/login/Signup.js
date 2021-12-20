@@ -1,5 +1,6 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
+import { Formik, Form, Field } from "formik";
 import {
   BoxContainer,
   FormContainer,
@@ -91,33 +92,38 @@ const AppContainer = styled.div`
   justify-content: center;
 `;
 
-export default function Signup(props) {
-  return (
-    <AppContainer>
-      <BoxContainers>
-        <TopContainer>
-          <BackDrop />
-          <HeaderContainer>
-            <HeaderText>Hello</HeaderText>
-            <HeaderText>PMS</HeaderText>
-            <SmallText>Đăng Ký Tài Khoản!</SmallText>
-          </HeaderContainer>
-        </TopContainer>
-        <InnerContainer>
-          <BoxContainer>
-            <FormContainer>
-              <Input type="text" placeholder="Full Name" />
-              <Input type="email" placeholder="Email" />
-              <Input type="password" placeholder="Password" />
-              <Input type="password" placeholder="Confirm Password" />
-            </FormContainer>
-            <br />
-            <SubmitButton type="submit">Đăng Ký</SubmitButton>
-            <br />
-          </BoxContainer>
-
-        </InnerContainer>
-      </BoxContainers>
-    </AppContainer>
-  );
+export default class Signup extends Component {
+  render() {
+    return (
+        <AppContainer>
+          <BoxContainers>
+            <TopContainer>
+              <BackDrop />
+              <HeaderContainer>
+                <HeaderText>Hello</HeaderText>
+                <HeaderText>PMS</HeaderText>
+                <SmallText>Đăng Ký Tài Khoản!</SmallText>
+              </HeaderContainer>
+            </TopContainer>
+            <InnerContainer>
+              <BoxContainer>
+                <FormContainer>
+                  <Input type="text" placeholder="Họ và tên" />
+                  <br />
+                  <Input type="email" placeholder="Email" />
+                  <br />
+                  <Input type="password" placeholder="Mật Khẩu" />
+                  <br />
+                  <Input type="password" placeholder="Nhập lại mật khẩu" />
+                </FormContainer>
+                <br />
+                <br />
+                <SubmitButton type="submit">Đăng Ký</SubmitButton>
+                <br />
+              </BoxContainer>
+            </InnerContainer>
+          </BoxContainers>
+        </AppContainer>
+    );
+  }
 }
