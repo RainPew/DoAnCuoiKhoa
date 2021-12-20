@@ -39,7 +39,7 @@ class ListEditor extends Component {
         <TextareaAutosize
           autoFocus
           className="List-Title-Textarea"
-          placeholder="Thêm Task" 
+          placeholder="Thêm danh sách" 
           value={title}
           onChange={handleChangeTitle}
           onKeyDown={this.onEnter}

@@ -1,5 +1,4 @@
 import "../styles/Board.css";
-
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
@@ -14,16 +13,13 @@ class Board extends Component {
 
   toggleAddingList = () =>
     this.setState({ addingList: !this.state.addingList });
-
   handleDragEnd = ({ source, destination, type }) => {
-    // dropped outside the allowed zones
     if (!destination) return;
 
     const { dispatch } = this.props;
     
-    // Move list
+    // di chuyển danh sách
     if (type === "COLUMN") {
-      // Prevent update if nothing has changed
       if (source.index !== destination.index) {
         dispatch({
           type: "MOVE_LIST",
@@ -36,7 +32,7 @@ class Board extends Component {
       return;
     }
 
-    // Move card
+    //di chuyển thẻ  
     if (
       source.index !== destination.index ||
       source.droppableId !== destination.droppableId
@@ -76,7 +72,7 @@ class Board extends Component {
                     onClick={this.toggleAddingList}
                     className="Add-List-Button"
                   >
-                    <ion-icon name="add" /> Add a list
+                    <ion-icon name="add" /> Thêm Danh Sách
                   </div>
                 )}
               </div>
@@ -88,6 +84,7 @@ class Board extends Component {
   }
 }
 
+// hàm lấy state từ redux biến đổi thành props của component  
 const mapStateToProps = state => ({ board: state.board });
 
 export default connect(mapStateToProps)(Board);

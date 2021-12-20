@@ -38,7 +38,7 @@ class CardEditor extends Component {
         </div>
         <EditButtons
           handleSave={() => onSave(text)}
-          saveLabel={adding ? "Add card" : "Lưu"}
+          saveLabel={adding ? "Thêm Công Việc" : "Lưu"}
           handleDelete={onDelete}
           handleCancel={onCancel}
         />

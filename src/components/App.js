@@ -4,10 +4,13 @@ import "../styles/App.css";
 import styled from "styled-components"
 import {BrowserRouter,Route, Routes , Switch} from "react-router-dom"
 import React, { Component } from "react";
+import { Fragment } from "react/cjs/react.production.min";
 import Board from "./Board";
-import Header from "./Header"
-import Index from "./login/Index";
-import Signup from "./login/Signup";
+import HeaderComponent from "./HeaderComponent";
+import HomeTemplate from "./templates/HomeTemplate/HomeTemplate";
+import Sider from "./templates/Sider";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
 
 
 
@@ -17,14 +20,33 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route exact path="/board" element={<Board />} />
-          <Route exact path="/index" element={<Index />} />
-          <Route exact path="/signup" element={<Signup />} />
-        </Routes>
-      </BrowserRouter>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/header" component={HeaderComponent} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/" component={Login} />
+            <Route
+              exact
+              path="/board"
+              render={(propsRoute) => {
+                return (
+                  <Fragment>
+                    <div className="row">
+                      <div className="col-2">
+                        <Sider/>
+                      </div>
+                      <div className="col-10">
+                      <HeaderComponent />
+                      <Board {...propsRoute} />
+                      </div>
+                    </div>
+                    
+                  </Fragment>
+                );
+              }}
+            />
+          </Switch>
+        </BrowserRouter>
       </div>
     );
   }

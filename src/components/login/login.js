@@ -1,22 +1,24 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { BoxContainer, FormContainer, Input, MutedLink, SubmitButton,BoldLink } from "./common";
 
-export default function Login(props) {
-    return (
 
-        <BoxContainer>
-            <FormContainer>
-                <Input type="email" placeholder = "Email" />
-                <Input type="password" placeholder = "Password" />
-            </FormContainer>
+ export default class login extends Component {
+     render() {
+         return (
+             
+        <BoxContainer>   
+                <Input type="email" placeholder = "Tên Đăng Nhập" />
+                <br />
+                <Input type="password" placeholder = "Mật Khẩu" />
             <br/>
-                <MutedLink href="#">Forget your password</MutedLink>
+                <MutedLink href="#">Quên Mật Khẩu?</MutedLink>
                 <br/>
-                <SubmitButton href="/board" type="submit">Signin</SubmitButton>
+                <SubmitButton href="/board" type="submit">Đăng Nhập</SubmitButton>
                 <br/>
-                <MutedLink href="#">Don't have an accout? <BoldLink href="/signup">SignUp</BoldLink></MutedLink>
+                <MutedLink href="#">Bạn Không có Tài Khoản? <BoldLink href="/signup">Đăng Ký</BoldLink></MutedLink>
         </BoxContainer>
-            
-    )
-}
-
+             
+         )
+     }
+ }
+ 
